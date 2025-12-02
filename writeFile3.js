@@ -1,0 +1,1 @@
+const fileText = "here is text of file 03"
