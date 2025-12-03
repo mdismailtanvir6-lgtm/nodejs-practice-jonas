@@ -10,15 +10,55 @@ const readFiles3 = fs.readFileSync("text3.txt", "utf-8");
 
 // =========== read file synchronously : 1 ===========
 const readFilsSync = fs.readFileSync("text.txt", "utf-8");
-console.log(readFilsSync);
-console.log("This is synchronous !")
+// console.log(readFilsSync);
+// console.log("This is synchronous !");
 
-// =========== read file asynchronously : 1 ===========
-fs.readFile("text2.txt", "utf-8", (err, data)=>{
-    console.log(data);
+// =========== read file asynchronously ===========
+// fs.readFile("text2.txt", "utf-8", (err, data) => {
+//   console.log(data);
+// });
+// console.log("This is asynchronous !");
+
+// =========== read file asynchronously with callback function ===========
+fs.readFile("text.txt", "utf-8", (err, data1) => {
+  console.log(data1);
+
+  fs.readFile("text2.txt", "utf-8", (err, data2) => {
+    console.log(data2);
+
+    fs.readFile("text3.txt", "utf-8", (err, data3) => {
+      console.log(data3);
+
+      fs.readFile("text4.txt", "utf-8", (err, data4) => {
+        console.log(data4);
+
+        fs.readFile("text5.txt", "utf-8", (err, data5) => {
+          console.log(data5);
+
+          fs.readFile("text6.txt", "utf-8", (err, data6) => {
+            console.log(data6);
+
+            fs.readFile("text7.txt", "utf-8", (err, data7) => {
+              console.log(data7);
+
+              fs.readFile("text8.txt", "utf-8", (err, data8) => {
+                console.log(data8);
+
+                fs.readFile("text9.txt", "utf-8", (err, data9) => {
+                  console.log(data9);
+
+                  fs.readFile("text10.txt", "utf-8", (err, data10) => {
+                    console.log(data10);
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  });
 });
-console.log("This is asynchronous !");
-
 
 // ============= write file here ============
 // ==== txt file ===
