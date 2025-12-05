@@ -1,4 +1,5 @@
 // ========== importing http and url from node ======
+const fs = require("fs");
 const http = require("http");
 const url = require("url");
 
@@ -7,6 +8,8 @@ const url = require("url");
 
 ///////////////////////////////////////////
 // ===== SERVER =========
+const data = fs.readFileSync(`${__dirname}/Data/data.json`, "utf-8");
+// const dataAPI = JSON.parse(data);
 const server = http.createServer((req, res) => {
   const pathName = req.url;
 
@@ -16,7 +19,15 @@ const server = http.createServer((req, res) => {
     res.end("this is product page !");
   } else if (pathName === "/details") {
     res.end("this is details page !");
-  } else {
+  }
+  else if (pathName === "/api"){
+    res.writeHead(202, {
+      "Content-type" : "application/json",
+    })
+    res.end(data)
+
+  }
+  else {
     res.writeHead(404, {
       "content-type": "text/html",
     });
@@ -27,4 +38,8 @@ const server = http.createServer((req, res) => {
 server.listen(8000, "127.0.0.1", () => {
   console.log("listening from server !");
 });
+
+
+console.log(__dirname);
+
 
