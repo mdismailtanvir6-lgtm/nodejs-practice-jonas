@@ -3,25 +3,12 @@ const fs = require("fs");
 const http = require("http");
 const path = require("path");
 const url = require("url");
+const replaceTemplate = require("./module/replaceTemplate");
+const { log } = require("console");
 
 ///////////////////////////////////////////
 // ===== Template Replace Function =======
-const replaceTemplate = (tempCard, product) => {
-  let output = tempCard.replace(/{%ID%}/g, product.id);
-  output = output.replace(/{%PRODUCTNAME%}/g, product.productName);
-  output = output.replace(/{%IMAGE%}/g, product.image);
-  output = output.replace(/{%FROM%}/g, product.from);
-  output = output.replace(/{%NUTRIENTS%}/g, product.nutrients);
-  output = output.replace(/{%QUANTITY%}/g, product.quantity);
-  output = output.replace(/{%PRICE%}/g, product.price);
-  output = output.replace(/{%DESCRIPTION%}/g, product.description);
 
-  if (!product.organic) {
-    output = output.replace(/{%NOT_ORGANIC%}/g, "not-organic");
-  }
-
-  return output;
-};
 
 ///////////////////////////////////////////
 // ===== Reading Templates & Data ========
@@ -47,7 +34,6 @@ const dataAPI = JSON.parse(api);
 // ===== Creating Server =========
 const server = http.createServer((req, res) => {
   const { pathname, query } = url.parse(req.url, true);
-  console.log("Query:", query);
 
   // ========= OVERVIEW PAGE ========
   if (pathname === "/" || pathname === "/overview") {
@@ -62,8 +48,8 @@ const server = http.createServer((req, res) => {
     res.end(output);
   }
 
-  // ========= PRODUCT DETAILS PAGE ========
-  else if (pathname === "/details") {
+  // ========= PRODUCT  PAGE ========
+  else if (pathname === `/product`) {
     res.writeHead(200, { "Content-Type": "text/html" });
 
     const product = dataAPI[query.id];
