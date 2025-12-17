@@ -3,11 +3,10 @@ const fs = require("fs");
 const http = require("http");
 const path = require("path");
 const url = require("url");
+const slugify = require("slugify");
 const replaceTemplate = require("./module/replaceTemplate");
 const { log } = require("console");
 
-///////////////////////////////////////////
-// ===== Template Replace Function =======
 
 
 ///////////////////////////////////////////
@@ -29,6 +28,11 @@ const product_card = fs.readFileSync(
 
 const api = fs.readFileSync(`${__dirname}/Data/data.json`, "utf-8");
 const dataAPI = JSON.parse(api);
+
+// ======== making slug ===========
+const slugs = dataAPI.map((item) => slugify(item.productName, { lower : true}));
+console.log(slugs);
+
 
 ///////////////////////////////////////////
 // ===== Creating Server =========
