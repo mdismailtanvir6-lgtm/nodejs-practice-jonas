@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-practice-jonas",
+  "version": "1.0.0",
+  "description": "Learning node js",
+  "homepage": "https://github.com/mdismailtanvir6-lgtm/nodejs-practice-jonas#readme",
+  "bugs": {
+    "url": "https://github.com/mdismailtanvir6-lgtm/nodejs-practice-jonas/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdismailtanvir6-lgtm/nodejs-practice-jonas.git"
+  },
+  "license": "ISC",
+  "author": "ismail hossain",
+  "type": "commonjs",
+  "main": "simpleWebServer.js",
+  "scripts": {
+    "test": "start"
+  }
+}

@@ -1,2 +1,0 @@
-This is a text of writeFile1 
-Wed Dec 10 2025
