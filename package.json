@@ -13,9 +13,9 @@
   "license": "ISC",
   "author": "ismail hossain",
   "type": "commonjs",
-  "main": "4.How node.js works/events.js",
+  "main": "4.How node.js works/streams.js",
   "scripts": {
-    "start": "nodemon 4.How node.js works/events.js"
+    "start": "nodemon 4.How node.js works/streams.js"
   },
   "dependencies": {
     "express": "^5.2.1",
